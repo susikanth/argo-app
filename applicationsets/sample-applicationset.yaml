@@ -12,7 +12,7 @@ spec:
     metadata:
       name: 'loki'
     spec:
-      project: "acluster-gitops"
+      project: "cluster-gitops"
       source:
         repoURL: git@github.com:susikanth/argo-app.git
         targetRevision: main
