@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: prometheus
+  name: rollout-nginx
 spec:  
   generators:
   - list:
@@ -11,19 +11,13 @@ spec:
       
   template:
     metadata:
-      name: 'loki-{{name}}'
+      name: 'rollout-{{name}}'
     spec:
       project: "cluster-gitops"
       source:
         repoURL: git@github.com:susikanth/argo-app.git
         targetRevision: main
-        path: 'loki-stack'
-        helm:
-          skipCrds: true
-          ignoreMissingValueFiles: true
-          valueFiles:
-            - 'values.yaml'
-            - 'envs/cluster.yaml'
+        path: 'nginx'
       destination:
         name: '{{name}}'
         namespace: 'monitoring'
