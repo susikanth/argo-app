@@ -18,7 +18,7 @@ spec:
         - templateName: error-rate
         args:
         - name: service-name
-          value: acs.argocd.svc.cluster.local
+          value: acs-portal.argocd.svc.cluster.local
   template:
     metadata:
       labels:
