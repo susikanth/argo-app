@@ -16,7 +16,7 @@ spec:
       source:
         repoURL: git@github.com:susikanth/argo-app.git
         targetRevision: main
-        path: 'loki'
+        path: 'loki-stack'
         helm:
           skipCrds: true
           ignoreMissingValueFiles: true
