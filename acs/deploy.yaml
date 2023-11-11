@@ -25,7 +25,7 @@ spec:
         app: acs-portal
     spec:
       containers:
-      - image: m2pfintech01/acs:portal-dev-v1.0.0
+      - image: nginx:latest
         imagePullPolicy: Always
         name: acs-portal
         ports:
