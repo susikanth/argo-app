@@ -4,7 +4,7 @@ metadata:
   labels:
     app: acs-portal
   name: acs-portal
-  namespace: default
+  namespace: argocd
 spec:
   replicas: 2
   selector:

@@ -4,6 +4,7 @@ metadata:
   labels:
     app: acs-portal
   name: acs-portal
+  namespace: argocd
 spec:
   ports:
     - name: http

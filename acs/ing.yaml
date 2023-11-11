@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/instance: uat-acs-portal
     app.kubernetes.io/managed-by: Helm
   name: rollout-acs
+  namespace: argocd
 spec:
   ingressClassName: nginx
   rules:
