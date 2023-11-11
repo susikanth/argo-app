@@ -7,7 +7,10 @@ spec:
   - list:
       elements:
       - cluster: in-cluster
-        name: in-cluster     
+        name: in-cluster 
+      - cluster: ansible
+        name: ansible
+      
   template:
     metadata:
       name: 'loki'
