@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: rollout-nginx
+  name: rollout-acs
 spec:  
   generators:
   - list:
@@ -13,14 +13,14 @@ spec:
     metadata:
       name: 'rollout-{{name}}'
     spec:
-      project: "cluster-gitops"
+      project: "rollout-test"
       source:
         repoURL: git@github.com:susikanth/argo-app.git
         targetRevision: main
-        path: 'nginx'
+        path: 'acs'
       destination:
         name: '{{name}}'
-        namespace: 'monitoring'
+        namespace: 'argo'
       syncPolicy:
         syncOptions:    
         - CreateNamespace=true

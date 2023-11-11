@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-clusterapp
+  name: rollout-testclusterapps
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: cluster-gitops
+  project: rollout-test
   source:
     repoURL: git@github.com:susikanth/argo-app.git
     targetRevision: main
