@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prometheus
+spec:  
+  generators:
+  - list:
+      elements:
+      - cluster: in-cluster
+        name: in-cluster     
+  template:
+    metadata:
+      name: 'kube-prometheus-stack'
+    spec:
+      project: "acluster-gitops"
+      source:
+        repoURL: git@github.com:susikanth/argo-app.git
+        targetRevision: main
+        path: 'kube-prometheus-stack'
+        helm:
+          skipCrds: true
+          ignoreMissingValueFiles: true
+          valueFiles:
+            - 'values.yaml'
+            - 'envs/cluster.yaml'
+      destination:
+        name: '{{name}}'
+        namespace: 'monitoring'
+      syncPolicy:
+        syncOptions:    
+        - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
