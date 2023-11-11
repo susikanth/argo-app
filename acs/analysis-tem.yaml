@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   args:
-  - name: rollout-acs
+  - name: service-name
   metrics:
   - name: error-rate
     interval: 5m
@@ -16,8 +16,8 @@ spec:
         address: http://eks-dev-m2p-monitoring-sta-prometheus.monitoring.svc.cluster.local:9090
         query: |
           sum(irate(
-            nginx_ingress_controller_requests{ingress=~"{{args.ingress-name}}",status=~"5.*"}[5m]
+            nginx_ingress_controller_requests{ingress=~"{{args.service-name}}",status=~"5.*"}[5m]
           )) /
           sum(irate(
-            nginx_ingress_controller_requests{ingress=~"{{args.ingress-name}}"}[5m]
+            nginx_ingress_controller_requests{ingress=~"{{args.service-name}}"}[5m]
           ))
