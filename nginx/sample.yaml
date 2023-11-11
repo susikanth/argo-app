@@ -12,6 +12,13 @@ spec:
     blueGreen:
       activeService: nginx-active
       previewService: nginx-preview
+      scaleDownDelaySeconds: 600 # 10 minutes
+      postPromotionAnalysis:
+        templates:
+        - templateName: smoke-tests
+        args:
+        - name: service-name
+          value: nginx-preview.default.svc.cluster.local
   template:
     metadata:
       labels:
@@ -19,7 +26,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.19
+        image: nginx:1.19.1
         ports:
         - containerPort: 80
 ---
