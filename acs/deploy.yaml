@@ -41,5 +41,5 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
-      imagePullSecrets:
-      - name: dockerhub
+      # imagePullSecrets:
+      # - name: dockerhub
