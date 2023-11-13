@@ -15,4 +15,4 @@ spec:
       prometheus:
         address: http://eks-dev-m2p-monitoring-sta-prometheus.monitoring.svc.cluster.local:9090
         query: |
-          sum (irate(nginx_ingress_controller_requests {exported_service= "acs-portal", host= "dev-monitoring.m2pfintech.com", status=~"^5.."}[1m]))
+          sum (irate(nginx_ingress_controller_requests {exported_service= "acs-portal", host= "dev-monitoring.m2pfintech.com", status="500"}[1m]))
