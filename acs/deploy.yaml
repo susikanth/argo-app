@@ -23,7 +23,7 @@ spec:
       - setWeight: 20
       - pause: {duration: 5m}
       - setWeight: 40
-      - pause: {duration: 50m}
+      - pause: {duration: 5m}
       - setWeight: 100
       - pause: {duration: 10m}
   template:
