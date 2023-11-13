@@ -24,9 +24,7 @@ spec:
       - pause: {duration: 5m}
       - setWeight: 40
       - pause: {duration: 50m}
-      - setWeight: 60
-      - pause: {duration: 10m}
-      - setWeight: 80
+      - setWeight: 100
       - pause: {duration: 10m}
   template:
     metadata:
@@ -34,7 +32,7 @@ spec:
         app: acs-portal
     spec:
       containers:
-      - image: m2pfintech01/acs:dev-v1.0.8
+      - image: m2pfintech01/acs:portal-dev-v1.0.0
         imagePullPolicy: Always
         name: acs-portal
         ports:
