@@ -6,7 +6,7 @@ metadata:
   name: acs-portal
   namespace: argocd
 spec:
-  replicas: 2
+  replicas: 10
   selector:
     matchLabels:
       app: acs-portal
@@ -19,13 +19,22 @@ spec:
         args:
         - name: service-name
           value: acs-portal.argocd.svc.cluster.local
+      steps:
+      - setWeight: 20
+      - pause: {duration: 5m}
+      - setWeight: 40
+      - pause: {duration: 50m}
+      - setWeight: 60
+      - pause: {duration: 10m}
+      - setWeight: 80
+      - pause: {duration: 10m}
   template:
     metadata:
       labels:
         app: acs-portal
     spec:
       containers:
-      - image: m2pfintech01/acs:portal-dev-v1.0.0
+      - image: m2pfintech01/acs:64118f5cc984353f1829616770cd5b2533075e90
         imagePullPolicy: Always
         name: acs-portal
         ports:
