@@ -32,7 +32,7 @@ spec:
         app: acs-portal
     spec:
       containers:
-      - image: m2pfintech01/acs:portal-dev-v1.0.0
+      - image: m2pfintech01/acs:portal-dev-v1.0.1
         imagePullPolicy: Always
         name: acs-portal
         ports:
