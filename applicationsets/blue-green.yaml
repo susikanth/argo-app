@@ -11,7 +11,7 @@ spec:
       
   template:
     metadata:
-      name: 'rollout-{{name}}'
+      name: 'rollout-blue-green'
     spec:
       project: "rollout-test"
       source:
