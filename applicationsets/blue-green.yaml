@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: rollout-bluegreen
+spec:  
+  generators:
+  - list:
+      elements:
+      - cluster: in-cluster
+        name: in-cluster 
+      
+  template:
+    metadata:
+      name: 'rollout-{{name}}'
+    spec:
+      project: "rollout-test"
+      source:
+        repoURL: git@github.com:susikanth/argo-app.git
+        targetRevision: main
+        path: 'blue-green'
+      destination:
+        name: '{{name}}'
+        namespace: 'argocd'
+      syncPolicy:
+        syncOptions:    
+        - CreateNamespace=true
+        automated:
+          prune: true
+          selfHeal: true
