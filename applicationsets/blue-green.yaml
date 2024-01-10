@@ -2,6 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: rollout-bluegreen
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.teams: argocd
+    notifications.argoproj.io/subscribe.on-sync-failed.teams: argocd
+    notifications.argoproj.io/subscribe.on-health-degraded.teams: argocd
 spec:  
   generators:
   - list:
