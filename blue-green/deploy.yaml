@@ -6,9 +6,9 @@ metadata:
   name: rollout-bluegreen
   namespace: argocd
   annotations:
-    notifications.argoproj.io/subscribe.on-sync-succeeded.teams: channel-teams-url
-    notifications.argoproj.io/subscribe.on-sync-failed.slack.teams: channel-teams-url
-    notifications.argoproj.io/subscribe.on-health-degraded.slack.teams: channel-teams-url
+    notifications.argoproj.io/subscribe.on-sync-succeeded.teams: argocd
+    notifications.argoproj.io/subscribe.on-sync-failed.slack.teams: argocd
+    notifications.argoproj.io/subscribe.on-health-degraded.slack.teams: argocd
 spec:
   replicas: 1
   revisionHistoryLimit: 2
