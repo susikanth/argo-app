@@ -6,7 +6,7 @@ metadata:
   name: acs-portal
   namespace: argocd
 spec:
-  replicas: 10
+  replicas: 1
   selector:
     matchLabels:
       app: acs-portal
